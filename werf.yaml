@@ -5,7 +5,17 @@ build:
   - linux/arm64
   - linux/amd64
 ---
+image: werf-issue-base
+context: .
+dockerfile: base.Containerfile
+staged: true
+---
 image: werf-issue
 context: .
 dockerfile: Containerfile
 staged: true
+dependencies:
+- image: werf-issue-base
+  imports:
+  - type: ImageName
+    targetBuildArg: BASE_IMAGE
