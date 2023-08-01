@@ -1,0 +1,11 @@
+project: werf-issue
+configVersion: 1
+build:
+  platform:
+  - linux/arm64
+  - linux/amd64
+---
+image: werf-issue
+context: .
+dockerfile: Containerfile
+staged: true
